@@ -21,6 +21,7 @@ class ManagementWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
                 .authorizeRequests()
                 .requestMatchers(new RequestMatcher[]{
                         EndpointRequest.to(new Class[]{HealthEndpoint.class, InfoEndpoint.class})
+                        //设置不需要权限的路径
                         ,new RegexRequestMatcher("/eureka", null)
                         ,new RegexRequestMatcher("/hello/test", null)
                 }))
