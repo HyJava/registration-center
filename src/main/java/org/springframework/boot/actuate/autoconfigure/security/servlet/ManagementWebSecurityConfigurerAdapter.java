@@ -21,7 +21,7 @@ class ManagementWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
                 .authorizeRequests()
                 .requestMatchers(new RequestMatcher[]{
                         EndpointRequest.to(new Class[]{HealthEndpoint.class, InfoEndpoint.class})
-                        ,new RegexRequestMatcher("/", null)
+                        ,new RegexRequestMatcher("/eureka", null)
                         ,new RegexRequestMatcher("/hello/test", null)
                 }))
                 .permitAll().anyRequest()).authenticated().and()).formLogin().and()).httpBasic();
