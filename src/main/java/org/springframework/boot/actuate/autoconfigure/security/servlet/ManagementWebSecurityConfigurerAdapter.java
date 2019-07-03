@@ -15,8 +15,6 @@ class ManagementWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        RegexRequestMatcher matcher = new RegexRequestMatcher("/", null);
-
         ((HttpSecurity)((HttpSecurity)((AuthorizedUrl)((AuthorizedUrl)http
                 .authorizeRequests()
                 .requestMatchers(new RequestMatcher[]{
