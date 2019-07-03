@@ -15,13 +15,13 @@ class ManagementWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
     }
 
     protected void configure(HttpSecurity http) throws Exception {
+        //设置不需要权限的路径
         ((HttpSecurity)((HttpSecurity)((AuthorizedUrl)((AuthorizedUrl)http
                 .authorizeRequests()
                 .requestMatchers(new RequestMatcher[]{
                         EndpointRequest.to(new Class[]{HealthEndpoint.class, InfoEndpoint.class})
-                        //设置不需要权限的路径
                         ,new RegexRequestMatcher("/eureka", null)
-                        ,new RegexRequestMatcher("/hello/test", null)
+                        ,new RegexRequestMatcher("/hello/[a-z,A-Z]*", null)
                 }))
                 .permitAll().anyRequest()).authenticated().and()).formLogin().and()).httpBasic();
     }
